@@ -4,46 +4,36 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameObject weapon;
 
-    public BoxCollider hitbox;
-    public int damage = 50;
-    // attribute
-    [Tooltip("Duration hitbox is enabled (in seconds)")]
-    public float hitDuration = 1f; // duration hitbox is enabled
-
-
+    public float speed = 6.0f;
+    public float jumpSpeed = 8.0f;
+    public float gravity = 20.0f;
+    public CharacterController controller;
+    private Vector3 moveDirection = Vector3.zero;
 
     // Update is called once per frame
     void Update()
     {
-        // check is space is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        float inputH = Input.GetAxis("Horizontal");
+        float inputV = Input.GetAxis("Vertical");
+
+        if (controller.isGrounded)
         {
-            // run hit sequence
-            StartCoroutine(Hit());
+            moveDirection = new Vector3(inputH, 0, inputV);
+            moveDirection = transform.TransformDirection(moveDirection);
+            moveDirection *= speed;
+            if (Input.GetButton("Jump"))
+                moveDirection.y = jumpSpeed;
+        }
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+
+        // Check if space is pressed
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Run hit sequence
+            weapon.SetActive(true);
         }
     }
-
-    IEnumerator Hit()
-    {
-        hitbox.enabled = true;
-        yield return new WaitForSeconds(hitDuration);
-        hitbox.enabled = false;
-    }
-
-
-
-    private void OnTriggerEnter(Collider other)
-    {
-        // detect enemy
-        Enemy enemy = other.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-
-            // deal damage
-            enemy.DealDamage(damage);
-        }
-    }
-
-
 }

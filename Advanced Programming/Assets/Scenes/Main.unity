@@ -268,6 +268,64 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+--- !u!1 &37266331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 37266332}
+  m_Layer: 0
+  m_Name: Waypoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &37266332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 37266331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -3, z: 4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 39922986}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &39922985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 39922986}
+  m_Layer: 0
+  m_Name: Waypoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &39922986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 39922985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 37266332}
+  - {fileID: 1561201493}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &166605207
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +798,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
+        type: 2}
+      propertyPath: waypointParent
+      value: 
+      objectReference: {fileID: 39922986}
+    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
+        type: 2}
+      propertyPath: distanceToWaypoint
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a0e67c5a660da44a56ce7679b40059, type: 2}
   m_IsPrefabAsset: 0
@@ -782,9 +850,48 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114887328976793026, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+        type: 2}
+      propertyPath: hitbox
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114887328976793026, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+        type: 2}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 1791154350}
+    - target: {fileID: 114887328976793026, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+        type: 2}
+      propertyPath: controller
+      value: 
+      objectReference: {fileID: 1780230217}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &596584630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1743713497602160, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+    type: 2}
+  m_PrefabInternal: {fileID: 596584629}
+--- !u!114 &596584631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 596584630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e928bfa15db5944b9b903011a6df416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1780230216}
+  distance: 5
+  xSpeed: 120
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 0.5
+  distanceMax: 15
 --- !u!43 &692670197
 Mesh:
   m_ObjectHideFlags: 0
@@ -3985,6 +4092,34 @@ Transform:
   - {fileID: 1210983890}
   - {fileID: 1946461147}
   m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1561201492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561201493}
+  m_Layer: 0
+  m_Name: Waypoint (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1561201493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1561201492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5, y: 1.5, z: -2.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 39922986}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1583049561
@@ -15609,6 +15744,38 @@ Transform:
   m_Father: {fileID: 1540697500}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1780230211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1578405258257428, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+    type: 2}
+  m_PrefabInternal: {fileID: 596584629}
+--- !u!4 &1780230216 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4146059889925140, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+    type: 2}
+  m_PrefabInternal: {fileID: 596584629}
+--- !u!143 &1780230217
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1780230211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1791154350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1201343776586576, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df,
+    type: 2}
+  m_PrefabInternal: {fileID: 596584629}
 --- !u!1 &1910447471
 GameObject:
   m_ObjectHideFlags: 0
