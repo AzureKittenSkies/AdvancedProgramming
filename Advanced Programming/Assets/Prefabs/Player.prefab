@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33173745702828854}
   - component: {fileID: 23853496706236568}
   - component: {fileID: 65767406953101528}
-  - component: {fileID: 114487297366975414}
+  - component: {fileID: 114076684125486262}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 23616156071487016}
   - component: {fileID: 136469765977158708}
   - component: {fileID: 114887328976793026}
+  - component: {fileID: 143984151114386206}
+  - component: {fileID: 114089821005471880}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -59,6 +61,7 @@ GameObject:
   - component: {fileID: 4683591909892350}
   - component: {fileID: 20234249186211354}
   - component: {fileID: 81588513568858584}
+  - component: {fileID: 114227977296131032}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -87,13 +90,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743713497602160}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.19827716, y: -0, z: -0, w: 0.98014605}
+  m_LocalPosition: {x: 0, y: 4.5, z: -6.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4146059889925140}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 22.872002, y: 0, z: 0}
 --- !u!4 &4900401316737856
 Transform:
   m_ObjectHideFlags: 1
@@ -250,7 +253,7 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743713497602160}
   m_Enabled: 1
---- !u!114 &114487297366975414
+--- !u!114 &114076684125486262
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,6 +266,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 1
   damage: 50
+--- !u!114 &114089821005471880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578405258257428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38cb174a885f3cd44bcfdd917f6ff30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 114887328976793026}
+  cam: {fileID: 114227977296131032}
+--- !u!114 &114227977296131032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1743713497602160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e928bfa15db5944b9b903011a6df416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hideCursor: 1
+  target: {fileID: 4146059889925140}
+  offset: {x: 0, y: 0, z: 0}
+  maxDistance: 5
+  xSpeed: 120
+  ySpeed: 120
+  yMinLimit: -20
+  yMaxLimit: 80
+  distanceMin: 0.5
+  distanceMax: 15
+  cameraCollision: 1
+  camRadius: 0.3
+  rayDistance: 1000
+  ignoreLayers:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &114887328976793026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,9 +317,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471f1bd4a6430de43a513f3b58c0bb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitbox: {fileID: 0}
-  damage: 50
-  hitDuration: 0.2
+  cam: {fileID: 4683591909892350}
+  weapon: {fileID: 1201343776586576}
+  speed: 6
+  jumpSpeed: 8
+  gravity: 20
+  controller: {fileID: 143984151114386206}
 --- !u!136 &136469765977158708
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -289,4 +335,21 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &143984151114386206
+CharacterController:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578405258257428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}

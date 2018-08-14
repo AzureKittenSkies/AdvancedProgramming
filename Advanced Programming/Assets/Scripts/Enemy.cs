@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Include Artificial Intelligence part of API
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-
+    // Property
     public int Health
     {
         get
@@ -17,90 +19,70 @@ public class Enemy : MonoBehaviour
 
     public NavMeshAgent agent;
     public Transform target;
-    public float distanceToWaypoint;
     public Transform waypointParent;
-    public bool loop = false;
-
-    public bool pingPong = false;
-    private Transform[] waypoints;
-    private int currentIndex = 1;
+    public float distanceToWaypoint = 1f;
+    public float detectionRadius = 5f;
 
     private int health = 100;
+    private int currentIndex = 1;
+    private Transform[] waypoints;
 
-    private void Start()
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    }
+
+    void Start()
     {
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
     }
-
-
     // Update is called once per frame
     void Update()
     {
-        // if a target is set
         if (target)
         {
-            // update ai's target position
+            // Update the AI's target position
             agent.SetDestination(target.position);
         }
         else
         {
-            // if currentindex exceeds size of array
             if (currentIndex >= waypoints.Length)
             {
-                if (loop)
-                {
-                    // reset back to element one (zero based array)
-                    currentIndex = 1;
-                }
-                else
-                {
-                    // cap the index if it's greater
-                    currentIndex = waypoints.Length - 1;
-                    // reverse order
-                    pingPong = true;
-                }
+                currentIndex = 1;
             }
-            // if currentindex exceeds size of array
-            if (currentIndex <= waypoints.Length)
-            {
-                if (loop)
-                {
-                    // reset back to element one (zero based array)
-                    currentIndex = 1;
-                }
-                else
-                {
-                    // cap the index if it's greater
-                    currentIndex = waypoints.Length - 1;
-                    // reverse order
-                    pingPong = false;
-                }
-            }
+
             Transform point = waypoints[currentIndex];
+
             float distance = Vector3.Distance(transform.position, point.position);
             if (distance <= distanceToWaypoint)
             {
-                if (pingPong)
-                {
-                    // move to previous waypoint
-                    currentIndex--;
-                }
-                else
-                {
-                    // move to next waypoint
-                    currentIndex++;
-                }
+                currentIndex++;
             }
 
-
-            // set new target to next waypoint
             agent.SetDestination(point.position);
         }
     }
 
-    public void DealDamage(int dealDamage)
+    void FixedUpdate()
     {
-        health -= dealDamage;
+        Collider[] hits = Physics.OverlapSphere(transform.position, detectionRadius);
+        foreach (var hit in hits)
+        {
+            Player player = hit.GetComponent<Player>();
+            if (player)
+            {
+                target = player.transform;
+                return;
+            }
+        }
+
+        target = null;
+    }
+
+    public void DealDamage(int damageDealt)
+    {
+        health -= damageDealt;
         if (health <= 0)
         {
             Destroy(gameObject);
