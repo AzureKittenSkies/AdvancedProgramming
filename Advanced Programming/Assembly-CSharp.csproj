@@ -66,6 +66,9 @@
     <Compile Include="Assets\Scripts\Input\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Melee.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\Visualisation\FieldOfView.cs" />
+    <None Include="Assets\Scripts\Shaders\Stencil Object.shader" />
+    <None Include="Assets\Scripts\Shaders\Stencil Mask.shader" />
     <Reference Include="Unity.ProBuilder.AddOns.Editor">
       <HintPath>C:/Users/aaron.hayman4/Documents/Repos/AdvancedProgramming/Advanced Programming/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>

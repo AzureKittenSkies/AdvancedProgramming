@@ -119,7 +119,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh4062
+  m_Name: pb_Mesh4084
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -280,7 +280,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint (1)
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -419,7 +419,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &166605208
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -949,11 +949,6 @@ Prefab:
       propertyPath: waypointParent
       value: 
       objectReference: {fileID: 39922986}
-    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
-        type: 2}
-      propertyPath: distanceToWaypoint
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a0e67c5a660da44a56ce7679b40059, type: 2}
   m_IsPrefabAsset: 0
@@ -966,7 +961,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4146059889925140, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: 7.5
       objectReference: {fileID: 0}
     - target: {fileID: 4146059889925140, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
       propertyPath: m_LocalPosition.y
@@ -974,7 +969,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4146059889925140, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -9.5
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4146059889925140, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
       propertyPath: m_LocalRotation.x
@@ -996,7 +991,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 136469765977158708, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: a98df3a4a4dc25e4a8e99a3f2e95d0df, type: 2}
   m_IsPrefabAsset: 0
 --- !u!43 &692670197
@@ -1320,7 +1316,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint (3)
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1503,7 +1499,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint (4)
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -4268,7 +4264,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint (2)
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -16581,7 +16577,7 @@ GameObject:
   m_Layer: 0
   m_Name: Waypoint (5)
   m_TagString: Untagged
-  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -16605,6 +16601,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114322878034272844, guid: 64a0e67c5a660da44a56ce7679b40059,
+        type: 2}
+      propertyPath: visibleTargets.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4386941465432144, guid: 64a0e67c5a660da44a56ce7679b40059, type: 2}
       propertyPath: m_LocalPosition.x
       value: -10
@@ -16642,29 +16643,9 @@ Prefab:
       propertyPath: waypointParent
       value: 
       objectReference: {fileID: 39922986}
-    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
-        type: 2}
-      propertyPath: distanceToWaypoint
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1955684916512396, guid: 64a0e67c5a660da44a56ce7679b40059, type: 2}
       propertyPath: m_Name
       value: Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
-        type: 2}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
-        type: 2}
-      propertyPath: loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114565898613942972, guid: 64a0e67c5a660da44a56ce7679b40059,
-        type: 2}
-      propertyPath: pingPong
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64a0e67c5a660da44a56ce7679b40059, type: 2}

@@ -8,6 +8,13 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+
+    public enum State
+    {
+        Patrol,
+        Seek
+    }
+
     // Property
     public int Health
     {
@@ -16,6 +23,8 @@ public class Enemy : MonoBehaviour
             return health;
         }
     }
+
+    public State currentState = State.Patrol;
 
     public NavMeshAgent agent;
     public Transform target;
@@ -37,30 +46,68 @@ public class Enemy : MonoBehaviour
     {
         waypoints = waypointParent.GetComponentsInChildren<Transform>();
     }
+
+    void Patrol()
+    {
+        // if the currentIndex is out of waypoint range
+        if (currentIndex >= waypoints.Length)
+        {
+            // go back to "first" waypoint
+            currentIndex = 1;
+        }
+
+        // set the current waypoint
+        Transform point = waypoints[currentIndex];
+        // get distance to waypoint
+        float distance = Vector3.Distance(transform.position, point.position);
+        // if waypoint is within range
+        if (distance <= distanceToWaypoint)
+        {
+            // move to next waypoint (next frame)
+            currentIndex++;
+        }
+
+        // generate path to current waypoint
+        agent.SetDestination(point.position);
+
+        // get distance to target
+        float distToTarget = Vector3.Distance(transform.position, target.position);
+        // if the target is within detection range
+        if (distToTarget < detectionRadius)
+        {
+            // switch to seek state
+            currentState = State.Seek;
+        }
+
+    }
+
+    void Seek()
+    {
+        // Update the AI's target position
+        agent.SetDestination(target.position);
+
+        // get distance to target
+        float distToTarget = Vector3.Distance(transform.position, target.position);
+
+        if (distToTarget > detectionRadius)
+        {
+            currentState = State.Patrol;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (target)
+        switch (currentState)
         {
-            // Update the AI's target position
-            agent.SetDestination(target.position);
-        }
-        else
-        {
-            if (currentIndex >= waypoints.Length)
-            {
-                currentIndex = 1;
-            }
-
-            Transform point = waypoints[currentIndex];
-
-            float distance = Vector3.Distance(transform.position, point.position);
-            if (distance <= distanceToWaypoint)
-            {
-                currentIndex++;
-            }
-
-            agent.SetDestination(point.position);
+            case State.Patrol:
+                Patrol();
+                break;
+            case State.Seek:
+                Seek();
+                break;
+            default:
+                break;
         }
     }
 
