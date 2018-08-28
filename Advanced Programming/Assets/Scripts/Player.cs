@@ -23,10 +23,9 @@ public class Player : MonoBehaviour
 
         if (controller.isGrounded)
         {
-            // rotate the player in the direction of camera
+            // Rotate the player in the direction of camera
             Vector3 euler = cam.transform.eulerAngles;
             transform.rotation = Quaternion.AngleAxis(euler.y, Vector3.up);
-
 
             moveDirection = new Vector3(inputH, 0, inputV);
             moveDirection = transform.TransformDirection(moveDirection);
@@ -41,7 +40,7 @@ public class Player : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             weapon.SetActive(true);
         }
