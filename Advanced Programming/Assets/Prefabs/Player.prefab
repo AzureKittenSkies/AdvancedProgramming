@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33173745702828854}
   - component: {fileID: 23853496706236568}
   - component: {fileID: 65767406953101528}
-  - component: {fileID: 114076684125486262}
+  - component: {fileID: 114947940522488750}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -43,7 +43,8 @@ GameObject:
   - component: {fileID: 136469765977158708}
   - component: {fileID: 114887328976793026}
   - component: {fileID: 143984151114386206}
-  - component: {fileID: 114089821005471880}
+  - component: {fileID: 114450620259132358}
+  - component: {fileID: 114295636119363154}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -253,32 +254,6 @@ AudioListener:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1743713497602160}
   m_Enabled: 1
---- !u!114 &114076684125486262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1201343776586576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8620dc03aefb614583d21a55c624515, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  duration: 1
-  damage: 50
---- !u!114 &114089821005471880
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1578405258257428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38cb174a885f3cd44bcfdd917f6ff30b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controller: {fileID: 114887328976793026}
-  cam: {fileID: 114227977296131032}
 --- !u!114 &114227977296131032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -306,6 +281,51 @@ MonoBehaviour:
   ignoreLayers:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &114295636119363154
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578405258257428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e246b2ae8a9bf14eb10408e25a2cbc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 114887328976793026}
+  cam: {fileID: 114227977296131032}
+--- !u!114 &114450620259132358
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1578405258257428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 169
+    i1: 141
+    i2: 243
+    i3: 164
+    i4: 164
+    i5: 220
+    i6: 37
+    i7: 228
+    i8: 168
+    i9: 233
+    i10: 154
+    i11: 63
+    i12: 46
+    i13: 149
+    i14: 208
+    i15: 223
+  m_ServerOnly: 1
+  m_LocalPlayerAuthority: 0
 --- !u!114 &114887328976793026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,7 +334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1578405258257428}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 471f1bd4a6430de43a513f3b58c0bb55, type: 3}
+  m_Script: {fileID: 11500000, guid: 447b11d504113e041a355618e092b09d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4683591909892350}
@@ -323,6 +343,19 @@ MonoBehaviour:
   jumpSpeed: 8
   gravity: 20
   controller: {fileID: 143984151114386206}
+--- !u!114 &114947940522488750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201343776586576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b848b7a5c2ad8348ab616d52e47752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  damage: 50
 --- !u!136 &136469765977158708
 CapsuleCollider:
   m_ObjectHideFlags: 1

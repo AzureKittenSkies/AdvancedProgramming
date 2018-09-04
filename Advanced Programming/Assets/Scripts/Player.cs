@@ -15,12 +15,20 @@ public class Player : MonoBehaviour
 
     public CharacterController controller;
 
-    // Update is called once per frame
+
     void Update()
     {
-        float inputH = Input.GetAxis("Horizontal");
-        float inputV = Input.GetAxis("Vertical");
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
 
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            weapon.SetActive(true);
+        }
+    }
+
+    public void Move(float inputH, float inputV)
+    {
         if (controller.isGrounded)
         {
             // Rotate the player in the direction of camera
@@ -37,12 +45,5 @@ public class Player : MonoBehaviour
             }
         }
 
-        moveDirection.y -= gravity * Time.deltaTime;
-        controller.Move(moveDirection * Time.deltaTime);
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            weapon.SetActive(true);
-        }
     }
 }
