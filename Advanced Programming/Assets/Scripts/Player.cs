@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public Transform cam;
 
     public GameObject weapon;
+    public GameObject gun;
 
     public float speed = 6.0F;
     public float jumpSpeed = 8.0F;
@@ -21,9 +22,13 @@ public class Player : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetMouseButtonDown(0))
         {
             weapon.SetActive(true);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            gun.SetActive(true);
         }
     }
 

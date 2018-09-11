@@ -70,6 +70,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1890807397889646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4549206624806444}
+  - component: {fileID: 114444659449434818}
+  m_Layer: 0
+  m_Name: Ranged Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4146059889925140
 Transform:
   m_ObjectHideFlags: 1
@@ -77,13 +93,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1578405258257428}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 2, z: -9.5}
+  m_LocalPosition: {x: -14.992073, y: 2, z: -33.8673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4683591909892350}
   - {fileID: 4900401316737856}
+  - {fileID: 4549206624806444}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4549206624806444
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890807397889646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4146059889925140}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4683591909892350
 Transform:
@@ -294,6 +324,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 114887328976793026}
   cam: {fileID: 114227977296131032}
+--- !u!114 &114444659449434818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1890807397889646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2093559644236bb45a702de271a8f551, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 25
+  damage: 15
+  duration: 0.5
+  enemy: {fileID: 0}
 --- !u!114 &114450620259132358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -339,6 +384,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 4683591909892350}
   weapon: {fileID: 1201343776586576}
+  gun: {fileID: 0}
   speed: 6
   jumpSpeed: 8
   gravity: 20
